@@ -3,16 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { StorageModule } from './storage/storage.module';
 import { ConfigModule } from '@nestjs/config';
-import { UploadController } from './upload/upload.controller';
+import { UploadModule } from './upload/upload.module';
 
-@Module({
+@Module ({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
     StorageModule,
+    UploadModule,
   ],
-  controllers: [UploadController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
